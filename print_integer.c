@@ -17,6 +17,11 @@ int print_int(int n, char *format, va_list args)
 		va_arg(args, void *);
 	num = va_arg(args, int);
 
+	if (num < 0)
+	{
+		num *= -1;
+		count += _putchar('-');
+	}
 	places = compute_places(num, 10);
 	while (places > 1)
 	{
@@ -25,6 +30,6 @@ int print_int(int n, char *format, va_list args)
 		num = num - (digit * places);
 		places /= 10;
 	}
-	count += _putchar(num % places + '0');
+	count += _putchar(num % 10 + '0');
 	return (count);
 }
