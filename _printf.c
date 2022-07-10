@@ -11,13 +11,13 @@
 int _printf(const char *format, ...)
 {
 	va_list args, args_copy;
-	int i = 0, j, count = 0, delimiter_count = 0;
-	int is_special;
+	int i = 0, j, count, delimiter_count = 0;
 	char c, next_c, *delimiter = NULL;
 	int (*op)(int, char *, va_list) = NULL;
 
 	va_start(args, format);
-	while (format[i] != '\0')
+	count = (format != NULL) ? 0 : -1;
+	while (format != NULL && format[i] != '\0')
 	{
 		c = format[i];
 		next_c = format[i + 1];
@@ -40,9 +40,8 @@ int _printf(const char *format, ...)
 			op = NULL;
 			continue;
 		}
-		is_special = (c == '%');
-		c = is_special ? next_c : c;
-		i = is_special ? i + 1 : i;
+		c = (c == '%') ? next_c : c;
+		i = (c == '%') ? i + 1 : i;
 		count += _putchar(c);
 		++i;
 	}
