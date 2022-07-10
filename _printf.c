@@ -12,8 +12,8 @@ int _printf(const char *format, ...)
 {
 	va_list args, args_copy;
 	int i = 0, j, count = 0, delimiter_count = 0;
-	char c, next_c;
-	char *delimiter = NULL;
+	int is_special;
+	char c, next_c, *delimiter = NULL;
 	int (*op)(int, char *, va_list) = NULL;
 
 	va_start(args, format);
@@ -21,7 +21,7 @@ int _printf(const char *format, ...)
 	{
 		c = format[i];
 		next_c = format[i + 1];
-		if (c == '%' && (next_c != '%' && next_c != ' '))
+		if (c == '%' && (next_c != '%' && _is_alpha(next_c)))
 		{
 			delimiter = malloc(sizeof(char) * 3);
 			j = 0;
@@ -40,10 +40,11 @@ int _printf(const char *format, ...)
 			op = NULL;
 			continue;
 		}
-		if (c == '%' && next_c == '%')
-			i++;
+		is_special = (c == '%' && (next_c == '%' || !_is_alpha(next_c)));
+		c = is_special ? next_c : c;
+		i = is_special ? i + 1 : i;
 		count += _putchar(c);
-		i++;
+		++i;
 	}
 	va_end(args);
 	return (count);

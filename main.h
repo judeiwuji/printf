@@ -23,4 +23,5 @@ int print_int(int n, char *delimiter, va_list args);
 int print_float(int n, char *delimiter, va_list args);
 int print_binary(int n, char *delimiter, va_list args);
 int print_hex(int n, char *delimiter, va_list args);
+int _is_alpha(char c);
 #endif
