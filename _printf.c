@@ -21,7 +21,7 @@ int _printf(const char *format, ...)
 	{
 		c = format[i];
 		next_c = format[i + 1];
-		if (c == '%' && (next_c != '%' && _is_alpha(next_c)))
+		if (c == '%' && (next_c != '%' && _is_specifier(next_c)))
 		{
 			delimiter = malloc(sizeof(char) * 3);
 			j = 0;
@@ -40,7 +40,7 @@ int _printf(const char *format, ...)
 			op = NULL;
 			continue;
 		}
-		is_special = (c == '%' && (next_c == '%' || !_is_alpha(next_c)));
+		is_special = (c == '%');
 		c = is_special ? next_c : c;
 		i = is_special ? i + 1 : i;
 		count += _putchar(c);
