@@ -44,6 +44,7 @@ int print_string(int n, char *delimiter, va_list args)
 {
 	char *str = delimiter;
 	int count = 0;
+
 	for (; n > 0; n--)
 		va_arg(args, void *);
 

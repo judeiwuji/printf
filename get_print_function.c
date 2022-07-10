@@ -30,5 +30,5 @@ int (*get_print_function(char *format))(int, char *, va_list)
 			break;
 	}
 
-	return op;
+	return (op);
 }
