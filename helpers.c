@@ -1,5 +1,5 @@
 /**
- * is_alpha: Checks if a character is an alphabet
+ * is_alpha - Checks if a character is an alphabet
  * @c: The character to be checked
  *
  * Return: (int)
