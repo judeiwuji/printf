@@ -12,6 +12,8 @@ int (*get_print_function(char *format))(int, char *, va_list)
 	op_t ops[] = {
 			{'c', print_char},
 			{'s', print_string},
+			{'d', print_int},
+			{'i', print_int},
 			{'\0', NULL}};
 	int (*op)(int, char *, va_list) = NULL;
 	int i, j;

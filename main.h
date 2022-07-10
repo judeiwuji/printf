@@ -25,4 +25,5 @@ int print_binary(int n, char *delimiter, va_list args);
 int print_hex(int n, char *delimiter, va_list args);
 int _is_alpha(char c);
 int _is_specifier(char c);
+unsigned int compute_places(int n, int step);
 #endif
