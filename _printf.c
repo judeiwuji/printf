@@ -11,8 +11,8 @@
 int _printf(const char *format, ...)
 {
 	va_list args, args_copy;
-	int i = 0, j, count, delimiter_count = 0;
-	char c, next_c, *delimiter = NULL;
+	int i = 0, j, count, specifier_count = 0;
+	char c, next_c, *specifier = NULL;
 	int (*op)(int, char *, va_list) = NULL;
 
 	va_start(args, format);
@@ -23,18 +23,18 @@ int _printf(const char *format, ...)
 		next_c = format[i + 1];
 		if (c == '%' && (next_c != '%' && _is_specifier(next_c)))
 		{
-			delimiter = malloc(sizeof(char) * 3);
+			specifier = malloc(sizeof(char) * 3);
 			j = 0;
 			while (format[++i] != '\0' && op == NULL)
 			{
-				delimiter[j] = format[i];
-				op = get_print_function(delimiter);
+				specifier[j] = format[i];
+				op = get_print_function(specifier);
 				if (op != NULL)
 				{
 					va_copy(args_copy, args);
-					count += op(delimiter_count++, delimiter, args_copy);
+					count += op(specifier_count++, specifier, args_copy);
 					va_end(args_copy);
-					free(delimiter);
+					free(specifier);
 				}
 			}
 			op = NULL;
