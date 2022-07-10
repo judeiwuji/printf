@@ -20,7 +20,7 @@ int _printf(const char *format, ...)
     {
         c = format[i];
         next_c = format[i + 1];
-        if (c == '%' && (next_c != '%' || next_c != ' '))
+        if (c == '%' && (next_c != '%' && next_c != ' '))
         {
             delimiter = malloc(sizeof(char) * 3);
             j = 0;

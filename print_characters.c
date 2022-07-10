@@ -18,6 +18,7 @@ int _putchar(char c)
  * @n: The index of the arg in the list
  * @delimiter: The delimiter for this arg
  * @args: The argument list
+ *
  * Return: (int) The number of characters printed
  */
 int print_char(int n, char *delimiter, va_list args)
@@ -27,6 +28,7 @@ int print_char(int n, char *delimiter, va_list args)
     for (; n > 0; n++)
         va_arg(args, void *);
     c = va_arg(args, int);
+
     return (_putchar(c));
 }
 
@@ -35,6 +37,7 @@ int print_char(int n, char *delimiter, va_list args)
  * @n: The index of the arg in the list
  * @delimiter: The delimiter for this arg
  * @args: The argument list
+ *
  * Return: (int) The number of characters printed
  */
 int print_string(int n, char *delimiter, va_list args)
