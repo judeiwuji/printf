@@ -17,12 +17,12 @@ typedef struct ops
 int _printf(const char *format, ...);
 int (*get_print_function(char *format))(int, char *, va_list);
 int _putchar(char c);
-int print_char(int n, char *delimiter, va_list args);
-int print_string(int n, char *delimiter, va_list args);
-int print_int(int n, char *delimiter, va_list args);
-int print_float(int n, char *delimiter, va_list args);
-int print_binary(int n, char *delimiter, va_list args);
-int print_hex(int n, char *delimiter, va_list args);
+int print_char(int n, char *format, va_list args);
+int print_string(int n, char *format, va_list args);
+int print_int(int n, char *format, va_list args);
+int print_float(int n, char *format, va_list args);
+int print_binary(int n, char *format, va_list args);
+int print_hex(int n, char *format, va_list args);
 int _is_alpha(char c);
 int _is_specifier(char c);
 unsigned int compute_places(int n, int step);

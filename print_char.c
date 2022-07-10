@@ -3,14 +3,14 @@
 /**
  * print_char - prints a character
  * @n: The index of the arg in the list
- * @delimiter: The delimiter for this arg
+ * @format: The format for this arg
  * @args: The argument list
  *
  * Return: (int) The number of characters printed
  */
-int print_char(int n, char *delimiter, va_list args)
+int print_char(int n, char *format, va_list args)
 {
-	char c = delimiter[0];
+	char c = format[0];
 
 	for (; n > 0; n--)
 		va_arg(args, void *);

@@ -3,13 +3,13 @@
 /**
  * print_int - prints an integer
  * @n: The index of the arg in the list
- * @delimiter: The delimiter for this arg
+ * @format: The format for this arg
  * @args: The argument list
  * Return: (int) The number of characters printed
  */
-int print_int(int n, char *delimiter, va_list args)
+int print_int(int n, char *format, va_list args)
 {
-	int num = delimiter[0];
+	int num = format[0];
 	int count = 0, digit;
 	unsigned int places;
 
