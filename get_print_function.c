@@ -9,26 +9,26 @@
  */
 int (*get_print_function(char *format))(int, char *, va_list)
 {
-    op_t ops[] = {
-        {'c', print_char},
-        {'s', print_string},
-        {'\0', NULL}};
-    int (*op)(int, char *, va_list) = NULL;
-    int i, j;
+	op_t ops[] = {
+			{'c', print_char},
+			{'s', print_string},
+			{'\0', NULL}};
+	int (*op)(int, char *, va_list) = NULL;
+	int i, j;
 
-    for (i = 0; ops[i].c != '\0'; i++)
-    {
-        for (j = 0; format[j] != '\0'; j++)
-        {
-            if (ops[i].c == format[j])
-            {
-                op = ops[i].op;
-                break;
-            }
-        }
-        if (op != NULL)
-            break;
-    }
+	for (i = 0; ops[i].c != '\0'; i++)
+	{
+		for (j = 0; format[j] != '\0'; j++)
+		{
+			if (ops[i].c == format[j])
+			{
+				op = ops[i].op;
+				break;
+			}
+		}
+		if (op != NULL)
+			break;
+	}
 
-    return op;
+	return op;
 }

@@ -1,0 +1,7 @@
+{
+  "diffEditor.ignoreTrimWhitespace": false,
+  "files.eol": "\n",
+  "editor.insertSpaces": false,
+  "editor.tabSize": 2,
+  "prettier.useTabs": true
+}

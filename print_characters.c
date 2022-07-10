@@ -10,7 +10,7 @@
  */
 int _putchar(char c)
 {
-    return (write(1, &c, 1));
+	return (write(1, &c, 1));
 }
 
 /**
@@ -23,13 +23,13 @@ int _putchar(char c)
  */
 int print_char(int n, char *delimiter, va_list args)
 {
-    char c = delimiter[0];
+	char c = delimiter[0];
 
-    for (; n > 0; n--)
-        va_arg(args, void *);
-    c = va_arg(args, int);
+	for (; n > 0; n--)
+		va_arg(args, void *);
+	c = va_arg(args, int);
 
-    return (_putchar(c));
+	return (_putchar(c));
 }
 
 /**
@@ -42,19 +42,18 @@ int print_char(int n, char *delimiter, va_list args)
  */
 int print_string(int n, char *delimiter, va_list args)
 {
-    char *str = delimiter;
-    int count = 0;
+	char *str = delimiter;
+	int count = 0;
+	for (; n > 0; n--)
+		va_arg(args, void *);
 
-    for (; n > 0; n--)
-        va_arg(args, void *);
+	str = va_arg(args, char *);
 
-    str = va_arg(args, char *);
+	if (str == NULL)
+		str = "(null)";
 
-    if (str == NULL)
-        str = "(null)";
+	while (*str != '\0')
+		count += _putchar(*str++);
 
-    while (*str != '\0')
-        count += _putchar(*str++);
-
-    return (count);
+	return (count);
 }

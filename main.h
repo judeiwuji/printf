@@ -11,8 +11,8 @@
  */
 typedef struct ops
 {
-    char c;
-    int (*op)(int, char *, va_list);
+	char c;
+	int (*op)(int, char *, va_list);
 } op_t;
 int _printf(const char *format, ...);
 int (*get_print_function(char *format))(int, char *, va_list);
