@@ -5,7 +5,7 @@
  * @format: The format of the printer
  *
  * Return: A callback function to perform the print
- *         operation
+ * operation
  */
 int (*get_print_function(char *format))(int, char *, va_list)
 {
@@ -20,7 +20,7 @@ int (*get_print_function(char *format))(int, char *, va_list)
     {
         for (j = 0; format[j] != '\0'; j++)
         {
-            if (ops[i].c == format[0])
+            if (ops[i].c == format[j])
             {
                 op = ops[i].op;
                 break;

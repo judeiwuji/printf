@@ -25,7 +25,7 @@ int print_char(int n, char *delimiter, va_list args)
 {
     char c = delimiter[0];
 
-    for (; n > 0; n++)
+    for (; n > 0; n--)
         va_arg(args, void *);
     c = va_arg(args, int);
 
@@ -45,7 +45,7 @@ int print_string(int n, char *delimiter, va_list args)
     char *str = delimiter;
     int count = 0;
 
-    for (; n > 0; n++)
+    for (; n > 0; n--)
         va_arg(args, void *);
 
     str = va_arg(args, char *);

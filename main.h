@@ -4,10 +4,10 @@
 #include <stdlib.h>
 #include <stdarg.h>
 /**
- * struct ops - Print operations data structures
+ * struct ops - Struct ops
  * @c: The character associated to this op
  * @op: A callback function to perform the print
- *      operation.
+ * operation.
  */
 typedef struct ops
 {
