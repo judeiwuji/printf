@@ -15,6 +15,7 @@ int _atoi(char *s)
 	int n = 0;
 	int steps = 0;
 	int c;
+
 	if (s == NULL)
 		return (0);
 	for (i = 0; s[i] != '\0'; i++)
