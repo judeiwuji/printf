@@ -33,5 +33,6 @@ int print_int(int n, char *format, va_list args)
 	}
 	digit = (num % 10) + is_int_min;
 	count += _putchar(digit + '0');
+	count += left_align(format, count);
 	return (count);
 }

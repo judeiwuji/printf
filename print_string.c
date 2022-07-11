@@ -23,6 +23,6 @@ int print_string(int n, char *format, va_list args)
 
 	while (*str != '\0')
 		count += _putchar(*str++);
-
+	count += left_align(format, count);
 	return (count);
 }
