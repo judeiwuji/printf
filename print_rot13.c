@@ -11,7 +11,7 @@
 int print_rot13(int n, char *format, va_list args)
 {
 	char *str = format;
-	int count = 0;
+	int count = 0, i;
 
 	for (; n > 0; n--)
 		va_arg(args, void *);
@@ -22,8 +22,9 @@ int print_rot13(int n, char *format, va_list args)
 		return (-1);
 
 	str = rot13(str);
-	while (*str != '\0')
-		count += _putchar(*str++);
+	for (i = 0; str[i] != '\0'; i++)
+		count += _putchar(str[i]);
 
+	free(str);
 	return (count);
 }
