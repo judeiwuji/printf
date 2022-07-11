@@ -6,7 +6,7 @@
  */
 int _is_specifier(char c)
 {
-	char *specifiers = "csdi";
+	char *specifiers = "csdirR";
 	int res = 0, i;
 
 	for (i = 0; specifiers[i] != '\0'; i++)

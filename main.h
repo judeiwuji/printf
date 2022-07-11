@@ -26,4 +26,9 @@ int print_hex(int n, char *format, va_list args);
 int _is_alpha(char c);
 int _is_specifier(char c);
 unsigned int compute_places(int n, int step);
+int _strlen(char *s);
+char *rot13(char *str);
+char *_reverse_string(char *str);
+int print_reverse(int n, char *format, va_list args);
+int print_rot13(int n, char *format, va_list args);
 #endif
