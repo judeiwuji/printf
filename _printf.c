@@ -21,7 +21,7 @@ int _printf(const char *format, ...)
 	{
 		c = format[i];
 		next_c = format[i + 1];
-		if (c == '%' && (next_c != '%' && _is_specifier(next_c)))
+		if (c == '%' && next_c != '%' && _is_specifier(next_c))
 		{
 			specifier = malloc(sizeof(char) * 4 + 1);
 			j = 0;

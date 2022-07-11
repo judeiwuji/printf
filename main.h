@@ -3,6 +3,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
+
+#define STR_TO_INT(val) (val - 48)
+#define INT_TO_STR(val) (val + 48)
 /**
  * struct ops - Struct ops
  * @c: The character associated to this op
@@ -33,5 +36,6 @@ int print_reverse(int n, char *format, va_list args);
 int print_rot13(int n, char *format, va_list args);
 int _is_digit(char c);
 int _atoi(char *s);
+int _pow_recursion(int x, int y);
 int left_align(char *format, int n);
 #endif
