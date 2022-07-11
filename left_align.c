@@ -4,7 +4,7 @@
  * left_align - align to left
  * @format: The format
  * @n: The already printed characters
- * 
+ *
  * Return: (int)
  */
 int left_align(char *format, int n)
