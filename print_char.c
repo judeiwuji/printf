@@ -16,6 +16,7 @@ int print_char(int n, char *format, va_list args)
 	for (; n > 0; n--)
 		va_arg(args, void *);
 	c = va_arg(args, int);
+	count += right_align(format, 1);
 	count += _putchar(c);
 	count += left_align(format, count);
 	return (count);

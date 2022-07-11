@@ -25,6 +25,7 @@ int print_int(int n, char *format, va_list args)
 	}
 	places = compute_places(num, 10);
 	count += pad_zero(format, count_int(num));
+	count += right_align(format, count_int(num));
 	while (places > 1)
 	{
 		digit = num / places;
