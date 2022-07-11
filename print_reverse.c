@@ -17,13 +17,12 @@ int print_reverse(int n, char *format, va_list args)
 	str = va_arg(args, char *);
 
 	if (str == NULL)
-		str = "(null)";
+		str = "";
 	else
 		str = _reverse_string(str);
 
 	while (*str != '\0')
 		count += _putchar(*str++);
 
-	free(str);
 	return (count);
 }
