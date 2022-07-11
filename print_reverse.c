@@ -2,9 +2,11 @@
 
 /**
  * print_reverse - prints a string in reverse.
- * @s: The string to be printed
+ * @n: The index of the arg in the list
+ * @format: The format for this arg
+ * @args: The argument list
  *
- * Return: void
+ * Return: (int) The number of characters printed
  */
 int print_reverse(int n, char *format, va_list args)
 {

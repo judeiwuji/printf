@@ -12,7 +12,6 @@ char *_reverse_string(char *str)
 	char *reverse;
 
 	len = _strlen(str);
-
 	reverse = malloc(sizeof(char) * len + 1);
 
 	if (len == 0)
@@ -23,7 +22,6 @@ char *_reverse_string(char *str)
 
 	if (reverse != NULL)
 	{
-
 		for (i = len - 1, j = 0; i >= 0; i--, j++)
 			reverse[j] = str[i];
 		if (reverse)
