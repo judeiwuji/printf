@@ -19,10 +19,9 @@ int print_rot13(int n, char *format, va_list args)
 	str = va_arg(args, char *);
 
 	if (str == NULL)
-		str = "(null)";
-	else
-		str = rot13(str);
+		return (-1);
 
+	str = rot13(str);
 	while (*str != '\0')
 		count += _putchar(*str++);
 
