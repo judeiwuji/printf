@@ -13,7 +13,7 @@ char *_reverse_string(char *str)
 
 	len = _strlen(str);
 	if (len == 0)
-		return (NULL);
+		return ("");
 
 	reverse = malloc(sizeof(char) * len + 1);
 	if (reverse != NULL)
