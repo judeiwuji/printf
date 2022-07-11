@@ -21,6 +21,7 @@ int print_string(int n, char *format, va_list args)
 	if (str == NULL)
 		str = "(null)";
 
+	count += right_align(format, _strlen(str));
 	while (*str != '\0')
 		count += _putchar(*str++);
 	count += left_align(format, count);
