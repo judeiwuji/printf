@@ -34,4 +34,6 @@ int print_rot13(int n, char *format, va_list args);
 int _is_digit(char c);
 int _atoi(char *s);
 int left_align(char *format, int n);
+int pad_zero(char *format, int n);
+int count_int(int n);
 #endif
