@@ -1,16 +1,16 @@
 #include "main.h"
 
 /**
- * print_string - prints a string
+ * print_custom_specifier - prints a string
  * @n: The index of the arg in the list
  * @format: The format for this arg
  * @args: The argument list
  *
  * Return: (int) The number of characters printed
  */
-int print_string(int n, char *format, va_list args)
+int print_custom_specifier(int n, char *format, va_list args)
 {
-	char *str = format;
+	char *str = format, next_value;
 	int count = 0;
 
 	for (; n > 0; n--)
@@ -22,10 +22,17 @@ int print_string(int n, char *format, va_list args)
 		str = "(null)";
 
 	while (*str != '\0')
-		if (*str == '\\' && *str++ != '\0')
-			*str = '\\';
-			*str++ = 'x';
+	{
+		if (*str <= 32 || *str >= 127)
+		{
+			count += _putchar('\\');
+			count += _putchar('x');
+			str++;
+			continue;
+		}
 		count += _putchar(*str++);
+	}
+	count += _putchar(*str++);
 	count += left_align(format, count);
 	return (count);
 }
