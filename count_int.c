@@ -10,6 +10,7 @@ int count_int(int n)
 {
 	int places = compute_places(n, 10);
 	int count;
+
 	if (places == 0)
 		return (1);
 
