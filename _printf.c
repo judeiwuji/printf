@@ -40,8 +40,8 @@ int _printf(const char *format, ...)
 			op = NULL;
 			continue;
 		}
-		c = (c == '%') ? next_c : c;
 		i = (c == '%') ? i + 1 : i;
+		c = (c == '%') ? next_c : c;
 		count += _putchar(c);
 		++i;
 	}
