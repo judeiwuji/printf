@@ -19,10 +19,9 @@ int print_reverse(int n, char *format, va_list args)
 	str = va_arg(args, char *);
 
 	if (str == NULL)
-		str = "";
-	else
-		str = _reverse_string(str);
+		return (-1);
 
+	str = _reverse_string(str);
 	while (*str != '\0')
 		count += _putchar(*str++);
 
