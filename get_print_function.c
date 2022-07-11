@@ -16,6 +16,7 @@ int (*get_print_function(char *format))(int, char *, va_list)
 			{'i', print_int},
 			{'r', print_reverse},
 			{'R', print_rot13},
+			{'b', print_binary},
 			{'\0', NULL}};
 	int (*op)(int, char *, va_list) = NULL;
 	int i, j;

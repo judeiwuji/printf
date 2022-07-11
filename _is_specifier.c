@@ -8,7 +8,7 @@
  */
 int _is_specifier(char c)
 {
-	char *specifiers = "csdirR-";
+	char *specifiers = "csdbirR-";
 	int res = 0, i;
 
 	for (i = 0; specifiers[i] != '\0'; i++)
