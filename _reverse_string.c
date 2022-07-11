@@ -12,10 +12,15 @@ char *_reverse_string(char *str)
 	char *reverse;
 
 	len = _strlen(str);
-	if (len == 0)
-		return ("");
 
 	reverse = malloc(sizeof(char) * len + 1);
+
+	if (len == 0)
+	{
+		reverse[0] = '\0';
+		return (reverse);
+	}
+
 	if (reverse != NULL)
 	{
 

@@ -24,5 +24,6 @@ int print_reverse(int n, char *format, va_list args)
 	while (*str != '\0')
 		count += _putchar(*str++);
 
+	free(str);
 	return (count);
 }
