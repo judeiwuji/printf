@@ -11,8 +11,8 @@
 int _printf(const char *format, ...)
 {
 	va_list args, args_copy;
-	int i = 0, j, count, specifier_count = 0;
-	char c, next_c, *specifier = NULL;
+	int i = 0, j, count, spec_count = 0;
+	char c, next_c, *spec = NULL;
 	int (*op)(int, char *, va_list) = NULL;
 
 	va_start(args, format);
@@ -23,20 +23,20 @@ int _printf(const char *format, ...)
 		next_c = format[i + 1];
 		if (c == '%' && _is_specifier(next_c) == 1)
 		{
-			specifier = _realloc(NULL, 0, 2);
+			spec = _realloc(NULL, 0, 2);
 			j = 0;
-			while (format[++i] != '\0' && op == NULL && specifier != NULL)
+			while (format[++i] != '\0' && op == NULL && spec != NULL)
 			{
-				specifier[j++] = format[i];
-				specifier[j] = '\0';
-				op = get_print_function(specifier);
+				spec[j++] = format[i];
+				spec[j] = '\0';
+				op = get_print_function(spec);
 				if (op != NULL)
 				{
 					va_copy(args_copy, args);
-					count += op(specifier_count++, specifier, args_copy);
-					free(specifier);
+					count += op(spec_count++, spec, args_copy);
+					free(spec);
 				}
-				specifier = _realloc(specifier, _strlen(specifier), _strlen(specifier) + 2);
+				spec = _realloc(spec, _strlen(spec), _strlen(spec) + 2);
 			}
 			op = NULL;
 			continue;
