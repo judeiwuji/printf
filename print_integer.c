@@ -9,8 +9,7 @@
  */
 int print_int(int n, char *format, va_list args)
 {
-	int num = format[0];
-	int count = 0, digit;
+	int num = format[0], count = 0, digit, is_int_min = 0;
 	unsigned int places;
 
 	for (; n > 0; n--)
@@ -20,6 +19,8 @@ int print_int(int n, char *format, va_list args)
 	if (num < 0)
 	{
 		num *= -1;
+		is_int_min = num < 0 ? 1 : 0;
+		num = is_int_min ? (num + 1) * -1 : num;
 		count += _putchar('-');
 	}
 	places = compute_places(num, 10);
@@ -30,6 +31,7 @@ int print_int(int n, char *format, va_list args)
 		num = num - (digit * places);
 		places /= 10;
 	}
-	count += _putchar(num % 10 + '0');
+	digit = (num % 10) + is_int_min;
+	count += _putchar(digit + '0');
 	return (count);
 }
