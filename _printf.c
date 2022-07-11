@@ -21,22 +21,22 @@ int _printf(const char *format, ...)
 	{
 		c = format[i];
 		next_c = format[i + 1];
-		if (c == '%' && next_c != '%' && _is_specifier(next_c))
+		if (c == '%' && _is_specifier(next_c) == 1)
 		{
-			specifier = malloc(sizeof(char) * 4 + 1);
+			specifier = _realloc(NULL, 0, 2);
 			j = 0;
 			while (format[++i] != '\0' && op == NULL && specifier != NULL)
 			{
 				specifier[j++] = format[i];
+				specifier[j] = '\0';
 				op = get_print_function(specifier);
 				if (op != NULL)
 				{
 					va_copy(args_copy, args);
-					specifier[j++] = '\0';
 					count += op(specifier_count++, specifier, args_copy);
-					va_end(args_copy);
 					free(specifier);
 				}
+				specifier = _realloc(specifier, _strlen(specifier), _strlen(specifier) + 2);
 			}
 			op = NULL;
 			continue;

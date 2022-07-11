@@ -38,4 +38,9 @@ int _is_digit(char c);
 int _atoi(char *s);
 int _pow_recursion(int x, int y);
 int left_align(char *format, int n);
+int right_align(char *format, int n);
+int pad_zero(char *format, int n);
+int count_int(int n);
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+char *_strcpy(char *dest, char *src);
 #endif

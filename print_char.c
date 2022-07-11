@@ -11,10 +11,13 @@
 int print_char(int n, char *format, va_list args)
 {
 	char c = format[0];
+	int count = 0;
 
 	for (; n > 0; n--)
 		va_arg(args, void *);
 	c = va_arg(args, int);
-
-	return (_putchar(c));
+	count += right_align(format, 1);
+	count += _putchar(c);
+	count += left_align(format, count);
+	return (count);
 }
