@@ -23,17 +23,15 @@ int print_binary(int n, char *format, va_list args)
 	if (str != NULL)
 	{
 		i = 0;
-		while (num > 0)
+		while (num > 0 && str != NULL)
 		{
 			str[i++] = INT_TO_STR(num % 2);
 			str[i] = '\0';
 			num /= 2;
-			_realloc(str, _strlen(str), _strlen(str) + 2);
+			str = _realloc(str, _strlen(str), _strlen(str) + 2);
 		}
-
 		str = _reverse_string(str);
-		for (i = 0; str[i] != '\0'; i++)
-			count += _putchar(str[i]);
+		count += _puts(str);
 
 		free(str);
 	}
