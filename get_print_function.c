@@ -18,7 +18,12 @@ int (*get_print_function(char *format))(int, char *, va_list)
 			{'R', print_rot13},
 			{'b', print_binary},
 			{'S', print_custom_specifier},
-			{'\0', NULL}};
+			{'x', print_hex},
+			{'X', print_hex},
+			{'o', print_octal},
+			{'u', print_unsigned_int},
+			{'\0', NULL},
+	};
 	int (*op)(int, char *, va_list) = NULL;
 	int i, j;
 

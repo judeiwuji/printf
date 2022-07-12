@@ -5,7 +5,7 @@
  * @step: The step to be used to get the value
  * Return: (int)
  */
-unsigned int compute_places(int n, int step)
+unsigned int compute_places(unsigned int n, int step)
 {
 	if (n < 10)
 		return (0);

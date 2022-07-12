@@ -26,9 +26,11 @@ int print_int(int n, char *format, va_list args);
 int print_float(int n, char *format, va_list args);
 int print_binary(int n, char *format, va_list args);
 int print_hex(int n, char *format, va_list args);
+int print_octal(int n, char *format, va_list args);
+int print_unsigned_int(int n, char *format, va_list args);
 int _is_alpha(char c);
 int _is_specifier(char c);
-unsigned int compute_places(int n, int step);
+unsigned int compute_places(unsigned int n, int step);
 int _strlen(char *s);
 char *rot13(char *str);
 char *_reverse_string(char *str);
@@ -51,10 +53,11 @@ int print_string_width(char *format, char *str);
 int print_integer_width(char *format, int n);
 char *to_octal(int n);
 char *to_hex(int n);
+char *_tolower(char *str);
 char get_hex_code(int n);
 /**
  * struct hex_code - Struct hex_code
- * @c: The character associated to this op
+ * @c: The character associated to this code
  * @code: The digit for this char
  * operation.
  */
@@ -63,4 +66,5 @@ typedef struct hex_code
 	char c;
 	int code;
 } hex_code_t;
+int _puts(char *str);
 #endif

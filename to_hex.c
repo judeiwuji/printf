@@ -54,7 +54,7 @@ char *to_hex(int n)
 		str = _realloc(str, _strlen(str), _strlen(str) + 2);
 	}
 
-	str[i++] = INT_TO_STR(n);
+	str[i++] = get_hex_code(n);
 	str[i] = '\0';
 	str = _reverse_string(str);
 	return (str);
