@@ -49,4 +49,18 @@ int get_min_width(char *format);
 int has_precision(char *str);
 int print_string_width(char *format, char *str);
 int print_integer_width(char *format, int n);
+char *to_octal(int n);
+char *to_hex(int n);
+char get_hex_code(int n);
+/**
+ * struct hex_code - Struct hex_code
+ * @c: The character associated to this op
+ * @code: The digit for this char
+ * operation.
+ */
+typedef struct hex_code
+{
+	char c;
+	int code;
+} hex_code_t;
 #endif
