@@ -28,6 +28,7 @@ int print_binary(int n, char *format, va_list args);
 int print_hex(int n, char *format, va_list args);
 int print_octal(int n, char *format, va_list args);
 int print_unsigned_int(int n, char *format, va_list args);
+int print_address(int n, char *format, va_list args);
 int _is_alpha(char c);
 int _is_specifier(char c);
 unsigned int compute_places(unsigned int n, int step);

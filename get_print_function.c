@@ -22,6 +22,7 @@ int (*get_print_function(char *format))(int, char *, va_list)
 			{'X', print_hex},
 			{'o', print_octal},
 			{'u', print_unsigned_int},
+			{'p', print_address},
 			{'\0', NULL},
 	};
 	int (*op)(int, char *, va_list) = NULL;
