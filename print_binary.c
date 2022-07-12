@@ -10,25 +10,34 @@
  */
 int print_binary(int n, char *format, va_list args)
 {
-	int count = 0, i, num = format[0];
+	int count = 0, i;
 	char *str = NULL;
+	unsigned int num;
 
+	format = format;
 	for (; n < 0; n--)
 		va_arg(args, void *);
-	num = va_arg(args, int);
+	num = va_arg(args, unsigned int);
 
 	str = _realloc(str, 0, 2);
-	i = 0;
-	while (num > 0)
+	if (str != NULL)
 	{
-		str[i++] = INT_TO_STR(num % 2);
-		str[i] = '\0';
-		num /= 2;
-		_realloc(str, _strlen(str), _strlen(str) + 2);
-	}
+		i = 0;
+		while (num > 0)
+		{
+			str[i++] = INT_TO_STR(num % 2);
+			str[i] = '\0';
+			num /= 2;
+			_realloc(str, _strlen(str), _strlen(str) + 2);
+		}
 
-	str = _reverse_string(str);
-	while (*str != '\0')
-		count += _putchar(*str++);
+		str = _reverse_string(str);
+		for (i = 0; str[i] != '\0'; i++)
+			count += _putchar(str[i]);
+
+		free(str);
+	}
+	else
+		count = -1;
 	return (count);
 }

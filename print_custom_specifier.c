@@ -10,7 +10,7 @@
  */
 int print_custom_specifier(int n, char *format, va_list args)
 {
-	char *str, *hex;
+	char *str = format, *hex;
 	int count = 0;
 
 	for (; n > 0; n--)
@@ -34,7 +34,5 @@ int print_custom_specifier(int n, char *format, va_list args)
 		}
 		count += _putchar(*str++);
 	}
-	count += _putchar(*str++);
-	count += left_align(format, count);
 	return (count);
 }
