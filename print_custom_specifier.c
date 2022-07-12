@@ -27,7 +27,7 @@ int print_custom_specifier(int n, char *format, va_list args)
 			hex = to_hex(*str);
 			count += _putchar('x');
 			if (_strlen(hex) < 2)
-				_putchar('0');
+				count += _putchar('0');
 			count += _puts(hex);
 			str++;
 			continue;
