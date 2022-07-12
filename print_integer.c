@@ -15,7 +15,8 @@ int print_int(int n, char *format, va_list args)
 	for (; n > 0; n--)
 		va_arg(args, void *);
 	num = va_arg(args, int);
-
+	if (has_precision(format))
+		return (print_integer_width(format, num));
 	if (num < 0)
 	{
 		num *= -1;

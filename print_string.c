@@ -17,6 +17,8 @@ int print_string(int n, char *format, va_list args)
 		va_arg(args, void *);
 
 	str = va_arg(args, char *);
+	if (has_precision(format))
+		return (print_string_width(format, str));
 
 	if (str == NULL)
 		str = "(null)";

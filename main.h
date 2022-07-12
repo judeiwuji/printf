@@ -43,4 +43,9 @@ int pad_zero(char *format, int n);
 int count_int(int n);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 char *_strcpy(char *dest, char *src);
+int get_max_width(char *format);
+int get_min_width(char *format);
+int has_precision(char *str);
+int print_string_width(char *format, char *str);
+int print_integer_width(char *format, int n);
 #endif
