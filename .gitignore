@@ -1,5 +1,5 @@
 /test
 main.c
 *.exe
-/scratch
-/.vscode
+scratch
+.vscode

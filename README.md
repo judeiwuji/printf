@@ -32,4 +32,5 @@ C - printf
     The 
 #BUGS
 #AUTHOR
+    Jude Iwuji <judeiwuji@gmail.com> and Ifiok Ekott <ekottifiok@gmail.com>
 #COPYRIGHT
