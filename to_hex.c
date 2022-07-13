@@ -12,13 +12,13 @@ char get_hex_code(int n)
 	int j;
 
 	hex_code_t hex_codes[] = {
-			{'A', 10},
-			{'B', 11},
-			{'C', 12},
-			{'D', 13},
-			{'E', 14},
-			{'F', 15},
-			{'\0', 0},
+		{'A', 10},
+		{'B', 11},
+		{'C', 12},
+		{'D', 13},
+		{'E', 14},
+		{'F', 15},
+		{'\0', 0},
 	};
 
 	for (j = 0; hex_codes[j].c != '\0'; j++)
@@ -39,13 +39,13 @@ char get_hex_code(int n)
  *
  * Return: (pointer)
  */
-char *to_hex(int n)
+char *to_hex(long unsigned int n)
 {
 	char *str;
 	int i = 0, digit;
 
 	str = _realloc(NULL, 0, 2);
-	while (n > 15)
+	while (n > 0)
 	{
 		digit = n % 16;
 		str[i++] = get_hex_code(digit);
@@ -53,9 +53,6 @@ char *to_hex(int n)
 		n /= 16;
 		str = _realloc(str, _strlen(str), _strlen(str) + 2);
 	}
-
-	str[i++] = get_hex_code(n);
-	str[i] = '\0';
 	str = _reverse_string(str);
 	return (str);
 }

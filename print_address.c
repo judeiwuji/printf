@@ -14,11 +14,13 @@ int print_address(int n __attribute__((unused)),
 				  va_list args)
 {
 	int count = 0, i;
-	long int quotient, remainder, decimal_num;
+	long unsigned int quotient, remainder, decimal_num;
 	char *str = NULL;
+
 	for (; n < 0; n--)
 		va_arg(args, void *);
-	decimal_num = (long int)va_arg(args, void *);
+	decimal_num = va_arg(args, long unsigned int);
+
 	str = _realloc(str, 0, 2);
 	if (str != NULL)
 	{
@@ -31,13 +33,9 @@ int print_address(int n __attribute__((unused)),
 			str[i] = '\0';
 			str = _realloc(str, _strlen(str), _strlen(str) + 2);
 		}
-		str[i++] = 'x';
-		str[i++] = '0';
-		str[i] = '\0';
-		str = _realloc(str, _strlen(str), _strlen(str) + 2);
+		count += _puts("0x");
 		count += _puts(_reverse_string(str));
 		free(str);
 	}
-
 	return (count);
 }

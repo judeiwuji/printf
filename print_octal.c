@@ -9,12 +9,13 @@
  */
 int print_octal(int n, char *format, va_list args)
 {
-	int num = format[0], count = 0;
+	int count = 0;
+	unsigned int num;
 	char *str;
 
 	for (; n > 0; n--)
 		va_arg(args, void *);
-	num = va_arg(args, int);
+	num = va_arg(args, unsigned int);
 
 	str = to_octal(num);
 	count += pad_zero(format, _strlen(str));

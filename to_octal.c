@@ -6,7 +6,7 @@
  *
  * Return: (pointer)
  */
-char *to_octal(int n)
+char *to_octal(unsigned int n)
 {
 	char *str;
 	int i = 0;
