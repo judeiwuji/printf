@@ -56,6 +56,8 @@ char *to_octal(unsigned int n);
 char *to_hex(long unsigned int n);
 char *_tolower(char *str);
 char get_hex_code(int n);
+int _indexof(char *str, char c);
+int print_digit(int n, int is_int_min);
 /**
  * struct hex_code - Struct hex_code
  * @c: The character associated to this code

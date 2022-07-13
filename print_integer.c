@@ -9,8 +9,8 @@
  */
 int print_int(int n, char *format, va_list args)
 {
-	int num = format[0], count = 0, digit, is_int_min = 0;
-	unsigned int places;
+	int num = format[0], count = 0, is_int_min = 0;
+	int negative = 0;
 
 	for (; n > 0; n--)
 		va_arg(args, void *);
@@ -22,20 +22,39 @@ int print_int(int n, char *format, va_list args)
 		num *= -1;
 		is_int_min = num < 0 ? 1 : 0;
 		num = is_int_min ? (num + 1) * -1 : num;
-		count += _putchar('-');
+		negative = 1;
 	}
-	places = compute_places(num, 10);
-	count += pad_zero(format, count_int(num));
-	count += right_align(format, count_int(num));
+
+	count += right_align(format, count_int(num) + negative);
+	if (negative)
+		count += _putchar('-');
+	count += pad_zero(format, count_int(num) + negative);
+	print_digit(num, is_int_min);
+	count += left_align(format, count);
+	return (count);
+}
+
+/**
+ * print_digit - Prints a given number
+ * @n: the number
+ *
+ * Return: (int)
+ */
+int print_digit(int n, int is_int_min)
+{
+	int digit, count = 0;
+	unsigned int places;
+
+	places = compute_places(n, 10);
 	while (places > 1)
 	{
-		digit = num / places;
+		digit = n / places;
 		count += _putchar(digit + '0');
-		num = num - (digit * places);
+		n = n - (digit * places);
 		places /= 10;
 	}
-	digit = (num % 10) + is_int_min;
+	digit = (n % 10) + is_int_min;
 	count += _putchar(digit + '0');
-	count += left_align(format, count);
+
 	return (count);
 }

@@ -45,7 +45,7 @@ char *to_hex(long unsigned int n)
 	int i = 0, digit;
 
 	str = _realloc(NULL, 0, 2);
-	while (n >= 15)
+	while (n > 0)
 	{
 		digit = n % 16;
 		str[i++] = get_hex_code(digit);
@@ -53,9 +53,6 @@ char *to_hex(long unsigned int n)
 		n /= 16;
 		str = _realloc(str, _strlen(str), _strlen(str) + 2);
 	}
-
-	str[i++] = get_hex_code(n);
-	str[i] = '\0';
 	str = _reverse_string(str);
 	return (str);
 }

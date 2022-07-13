@@ -34,11 +34,11 @@ int _printf(const char *format, ...)
 				{
 					va_copy(args_copy, args);
 					count += op(spec_count++, spec, args_copy);
-					free(spec);
 				}
 				spec = _realloc(spec, _strlen(spec), _strlen(spec) + 2);
 			}
 			op = NULL;
+			free(spec);
 			continue;
 		}
 		i = (c == '%' && next_c == '%') ? i + 1 : i;

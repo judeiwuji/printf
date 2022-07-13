@@ -15,27 +15,32 @@ int print_binary(int n, char *format, va_list args)
 	unsigned int num;
 
 	format = format;
-	for (; n < 0; n--)
+	for (; n > 0; n--)
 		va_arg(args, void *);
 	num = va_arg(args, unsigned int);
 
-	str = _realloc(str, 0, 2);
-	if (str != NULL)
+	if (num != 0)
 	{
-		i = 0;
-		while (num > 0 && str != NULL)
+		str = _realloc(str, 0, 2);
+		if (str != NULL)
 		{
-			str[i++] = INT_TO_STR(num % 2);
-			str[i] = '\0';
-			num /= 2;
-			str = _realloc(str, _strlen(str), _strlen(str) + 2);
-		}
-		str = _reverse_string(str);
-		count += _puts(str);
+			i = 0;
+			while (num > 0 && str != NULL)
+			{
+				str[i++] = INT_TO_STR(num % 2);
+				str[i] = '\0';
+				num /= 2;
+				str = _realloc(str, _strlen(str), _strlen(str) + 2);
+			}
+			str = _reverse_string(str);
+			count += _puts(str);
 
-		free(str);
+			free(str);
+		}
+		else
+			count = -1;
 	}
 	else
-		count = -1;
+		count += _puts("00");
 	return (count);
 }
