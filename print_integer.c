@@ -29,7 +29,7 @@ int print_int(int n, char *format, va_list args)
 	if (negative)
 		count += _putchar('-');
 	count += pad_zero(format, count_int(num) + negative);
-	print_digit(num, is_int_min);
+	count += print_digit(num, is_int_min);
 	count += left_align(format, count);
 	return (count);
 }
