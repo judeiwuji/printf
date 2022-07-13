@@ -45,14 +45,22 @@ char *to_hex(long unsigned int n)
 	int i = 0, digit;
 
 	str = _realloc(NULL, 0, 2);
-	while (n > 0)
+	if (n > 0)
 	{
-		digit = n % 16;
-		str[i++] = get_hex_code(digit);
-		str[i] = '\0';
-		n /= 16;
-		str = _realloc(str, _strlen(str), _strlen(str) + 2);
+		while (n > 0)
+		{
+			digit = n % 16;
+			str[i++] = get_hex_code(digit);
+			str[i] = '\0';
+			n /= 16;
+			str = _realloc(str, _strlen(str), _strlen(str) + 2);
+		}
+		str = _reverse_string(str);
 	}
-	str = _reverse_string(str);
+	else
+	{
+		str[i++] = '0';
+		str[i] = '\0';
+	}
 	return (str);
 }
