@@ -9,13 +9,16 @@
  *
  * Return: (int) The number of characters printed
  */
-int print_address(int n, char *format, va_list args)
+int print_address(int n __attribute__((unused)),
+				  char *format __attribute__((unused)),
+				  va_list args)
 {
-	int count = 0, i, len_str;
+	int count = 0, i;
 	long int quotient, remainder, decimal_num;
 	char *str = NULL;
-
-	decimal_num = va_arg(args, void *);
+	for (; n < 0; n--)
+		va_arg(args, void *);
+	decimal_num = (long int)va_arg(args, void *);
 	str = _realloc(str, 0, 2);
 	if (str != NULL)
 	{
