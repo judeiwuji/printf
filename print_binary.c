@@ -41,6 +41,6 @@ int print_binary(int n, char *format, va_list args)
 			count = -1;
 	}
 	else
-		count += _puts("00");
+		count += _puts("0");
 	return (count);
 }
