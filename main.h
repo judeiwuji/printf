@@ -52,8 +52,8 @@ int get_min_width(char *format);
 int has_precision(char *str);
 int print_string_width(char *format, char *str);
 int print_integer_width(char *format, int n);
-char *to_octal(int n);
-char *to_hex(int n);
+char *to_octal(unsigned int n);
+char *to_hex(long unsigned int n);
 char *_tolower(char *str);
 char get_hex_code(int n);
 /**

@@ -41,8 +41,8 @@ int _printf(const char *format, ...)
 			op = NULL;
 			continue;
 		}
-		i = (c == '%') ? i + 1 : i;
-		c = (c == '%') ? next_c : c;
+		i = (c == '%' && next_c == '%') ? i + 1 : i;
+		c = (c == '%' && next_c == '%') ? next_c : c;
 		count += _putchar(c);
 		++i;
 	}

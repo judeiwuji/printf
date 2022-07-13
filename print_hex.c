@@ -9,12 +9,13 @@
  */
 int print_hex(int n, char *format, va_list args)
 {
-	int num = format[0], count = 0, i;
+	int count = 0, i;
+	unsigned int num;
 	char *str;
 
 	for (; n > 0; n--)
 		va_arg(args, void *);
-	num = va_arg(args, int);
+	num = va_arg(args, unsigned int);
 
 	str = to_hex(num);
 	for (i = 0; format[i] != '\0'; i++)
